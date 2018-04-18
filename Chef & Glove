@@ -1,0 +1,39 @@
+#include<bits/stdc++.h>
+using namespace std;
+int main()
+{
+int t;
+cin>>t;
+while (t--)
+{
+	int n;
+	cin>>n;
+	int l[n], g[n];
+	int count_f=0, count_b=0;
+	for(int i=1;i<=n;i++)
+		cin>>l[i];
+	for(int j=1;j<=n;j++)
+		cin>>g[j];
+	for(int i=1;i<=n;i++)
+	{
+		if(l[i]<=g[i])
+			count_f++;
+		//else
+		//	break;
+		if(l[i]<=g[n+1-i])
+			count_b++;
+		//else
+		//	break;
+		
+	}
+	if(count_f==n && count_b==n)
+		cout<<"both"<<endl;
+	else if(count_f==n && count_b!=n)
+		cout<<"front"<<endl;
+	else if(count_f!=n && count_b==n)
+		cout<<"back"<<endl;
+	else if(count_f!=n && count_b!=n)
+		cout<<"none"<<endl;
+}  
+return 0;
+} 
